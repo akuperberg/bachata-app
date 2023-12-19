@@ -1,0 +1,67 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="mainlayout" >
+
+
+  <mat-toolbar *ngIf="currentUserLogin" class="main_toolBar" >
+    <span>
+      <div class="toggle-icon">
+        <button type="button" mat-button (click)="drawer.toggle()">
+          <mat-icon fontIcon="menu"></mat-icon>
+        </button>
+      </div>
+    </span>
+    <a routerLink="/overview"><mat-icon fontIcon="home"></mat-icon></a>
+    <span>Awesome Chart</span>
+    <span class="example-fill-remaining-space"></span>
+    <button mat-button class="profileOption" [matMenuTriggerFor]="menu">
+      <img   class="img_prof" src="/assets/profile.png"/> {{nickName}}
+      <img  src="/assets/more.png"/>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <img  src="/assets/email.svg"/>
+        <span> {{email}}</span>
+      </button>
+      <button mat-menu-item (click)="logedOut()">
+        <img  src="/assets/signOut.svg"/>
+        <span> Sign Out</span>
+      </button>
+
+    </mat-menu>
+
+
+
+  </mat-toolbar>
+  <mat-drawer-container class="example-container">
+    <mat-drawer  #drawer class="example-sidenav" mode="over" >
+
+      <mat-accordion class="side_expansion">
+        <mat-expansion-panel >
+            <mat-expansion-panel-header>
+              Line Chart
+            </mat-expansion-panel-header>
+            <mat-nav-list class="chartList">
+              <a mat-list-item routerLink="/" routerLinkActive="active-link">Dynamic Chart</a>
+            </mat-nav-list>
+        </mat-expansion-panel>
+
+        <!-- <mat-expansion-panel >
+            <mat-expansion-panel-header>
+              Gauge Chart
+            </mat-expansion-panel-header>
+            <mat-nav-list class="chartList">
+               <a mat-list-item routerLink="/gauge" routerLinkActive="active-link">Solid Gauge</a>
+            </mat-nav-list>
+
+        </mat-expansion-panel> -->
+      </mat-accordion>
+
+    </mat-drawer>
+
+    <div class="chart-content">
+        <app-alert></app-alert>
+        <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-container>
+
+</div>

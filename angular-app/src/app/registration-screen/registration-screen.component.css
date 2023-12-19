@@ -1,0 +1,26 @@
+.col-centered{
+    float: none;
+    margin: 50px auto;
+}
+
+h1{
+    
+    color: black;
+    font-size: 28px;
+}
+
+.help-block{
+  color:red;
+}
+img{
+  /* float: none;
+  margin: 0 auto; */
+}
+
+/* .logo{
+  display: inline-block;
+} */
+.container{
+  margin-left: 20%;
+  margin-bottom: 20px;
+}
